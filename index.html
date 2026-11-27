@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GradScope 2025 — MBA Placements &amp; Career Insights</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav-inner">
+      <a href="#top" class="logo">
+        <span class="logo-dot"></span>
+        <span>GradScope <strong>2025</strong></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#insights">Insights</a>
+        <a href="#schools">B-Schools</a>
+        <a href="#specializations">Specializations</a>
+        <a href="#recruiters">Recruiters</a>
+        <a href="#calculator">Salary Calculator</a>
+        <a href="#directory">Graduates</a>
+      </nav>
+      <div class="header-actions">
+        <span class="sync-pill" id="syncPill" title="Current persistence mode">Checking sync...</span>
+        <button class="btn-admin" id="openAdminBtn" type="button">Admin Panel</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">MBA Class of 2025 &bull; Placement Report</span>
+        <h1 id="heroTitle">Where India's 3,000 MBA graduates landed—and what drove their offers.</h1>
+        <p class="lead">
+          Explore verified placement outcomes across leading B-schools, specializations, and major recruiters. Add or remove student records in the Admin Panel and watch every metric, chart, and model update instantly.
+        </p>
+        <div class="hero-actions">
+          <a href="#schools" class="btn btn-primary">Explore B-Schools</a>
+          <a href="#calculator" class="btn btn-ghost">Try Salary Calculator</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="hero-stat-big">
+          <span>Overall Placement Rate</span>
+          <strong id="hRate">-</strong>
+          <small id="hCounts">-</small>
+        </div>
+        <div class="hero-stat-row">
+          <div>
+            <span>Average Package</span>
+            <strong id="hAvg">-</strong>
+          </div>
+          <div>
+            <span>Highest Package</span>
+            <strong id="hMax">-</strong>
+          </div>
+        </div>
+        <div class="hero-stat-row">
+          <div>
+            <span>Avg 1st-Year ROI</span>
+            <strong id="hROI">-</strong>
+          </div>
+          <div>
+            <span>Avg Stipend / Mo</span>
+            <strong id="hStipend">-</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="insights">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Key Takeaways</span>
+        <h2>Three patterns shaping the 2025 placement season</h2>
+        <p id="insightsSub">Live regression and cohort comparisons across all student records.</p>
+      </div>
+      <div class="story-grid">
+        <article class="story-card">
+          <div class="story-tag tag-green">Placement Predictor</div>
+          <h3>The ₹25,000 Stipend Threshold</h3>
+          <p id="stipendStoryCopy">-</p>
+          <div class="mini-bars" id="stipendStoryBars"></div>
+        </article>
+
+        <article class="story-card">
+          <div class="story-tag tag-blue">Salary Engine</div>
+          <h3>CGPA &amp; Experience Beat Entrance Scores</h3>
+          <p id="salaryStoryCopy">-</p>
+          <div class="callout-pair">
+            <div><span>Fresher (0m) + 5.5–6.5 CGPA</span><strong id="lowMatrixVal">-</strong></div>
+            <div><span>37–48m Exp + 8.5–9.8 CGPA</span><strong id="highMatrixVal">-</strong></div>
+          </div>
+        </article>
+
+        <article class="story-card">
+          <div class="story-tag tag-amber">Return on Investment</div>
+          <h3>Fee vs Package: Best 1st-Year ROI</h3>
+          <p id="roiStoryCopy">-</p>
+          <div class="callout-pair">
+            <div><span>Top ROI Campus</span><strong id="topRoiSchool">-</strong></div>
+            <div><span>Highest Placement Rate</span><strong id="topRateSchool">-</strong></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="schools">
+    <div class="wrap">
+      <div class="section-head row-between">
+        <div>
+          <span class="eyebrow">B-School Directory</span>
+          <h2>Compare participating campuses</h2>
+          <p>Click any campus card to inspect its specialization mix, top recruiters, and recent offers.</p>
+        </div>
+        <div class="pill-controls" role="group" aria-label="Sort B-Schools">
+          <button class="pill-btn active" data-sort="roi">Best ROI</button>
+          <button class="pill-btn" data-sort="pkg">Highest Avg CTC</button>
+          <button class="pill-btn" data-sort="rate">Placement %</button>
+        </div>
+      </div>
+      <div class="school-grid" id="schoolGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="specializations">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Academic Tracks</span>
+        <h2>Outcomes by MBA Specialization</h2>
+        <p id="specLead">Live placement rate and average compensation per track.</p>
+      </div>
+      <div class="spec-grid" id="specGrid"></div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="recruiters">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Hiring Partners &amp; Metro Hubs</span>
+        <h2>Who hired the Class of 2025—and where</h2>
+        <p id="recLead">Recruiting partners and joining metro hubs updated in real time.</p>
+      </div>
+      <div class="recruiter-grid" id="recruiterGrid"></div>
+      <div class="hub-strip" id="hubStrip"></div>
+    </div>
+  </section>
+
+  <section class="section" id="calculator">
+    <div class="wrap">
+      <div class="calc-shell">
+        <div class="calc-left">
+          <span class="eyebrow">Interactive Tool</span>
+          <h2>Estimate Your MBA Offer &amp; ROI</h2>
+          <p class="lead-sm" id="calcModelNote">
+            Powered by live OLS regression fitted to the current dataset.
+          </p>
+          <div class="calc-inputs">
+            <div class="field">
+              <label for="cSchool">Preferred B-School</label>
+              <select id="cSchool"></select>
+            </div>
+            <div class="field">
+              <label for="cSpec">Specialization</label>
+              <select id="cSpec"></select>
+            </div>
+            <div class="field">
+              <div class="range-head"><label for="cCGPA">MBA CGPA</label><strong id="cCGPAVal">8.00</strong></div>
+              <input type="range" id="cCGPA" min="5.5" max="9.8" step="0.05" value="8.0" />
+            </div>
+            <div class="field">
+              <div class="range-head"><label for="cExp">Prior Work Experience</label><strong id="cExpVal">24 months</strong></div>
+              <input type="range" id="cExp" min="0" max="48" step="1" value="24" />
+            </div>
+            <div class="field">
+              <div class="range-head"><label for="cStipend">Summer Internship Stipend</label><strong id="cStipendVal">₹45,000 / mo</strong></div>
+              <input type="range" id="cStipend" min="5000" max="75000" step="1000" value="45000" />
+            </div>
+            <div class="field">
+              <label for="cFee">Course Fee Tier</label>
+              <select id="cFee">
+                <option value="12">₹12 Lakhs</option>
+                <option value="15" selected>₹15 Lakhs</option>
+                <option value="18">₹18 Lakhs</option>
+                <option value="22">₹22 Lakhs</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="calc-right">
+          <div class="result-hero">
+            <span>Estimated Package (Live OLS Model)</span>
+            <strong id="rPkg">-</strong>
+            <small id="rRange">-</small>
+          </div>
+          <div class="result-metrics">
+            <div><span>Placement Outlook</span><strong id="rOutlook">-</strong></div>
+            <div><span>1st-Year ROI</span><strong id="rROI">-</strong></div>
+            <div><span>Fee Payback</span><strong id="rPayback">-</strong></div>
+            <div><span>Cohort Percentile</span><strong id="rPct">-</strong></div>
+          </div>
+          <div class="peers-block">
+            <h4>Similar Placed Graduates</h4>
+            <div id="rPeers" class="peer-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="directory">
+    <div class="wrap">
+      <div class="section-head row-between">
+        <div>
+          <span class="eyebrow">Graduate Directory</span>
+          <h2>Browse student profiles</h2>
+          <p id="dirStatus">-</p>
+        </div>
+        <div class="dir-controls">
+          <input type="search" id="dirSearch" placeholder="Search name, ID, recruiter, city..." />
+          <select id="dirSchool"><option value="ALL">All Colleges</option></select>
+          <select id="dirSpec"><option value="ALL">All Specializations</option></select>
+          <select id="dirOutcome">
+            <option value="ALL">All Outcomes</option>
+            <option value="PLACED">Placed Only</option>
+            <option value="UNPLACED">Opted Out / Unplaced</option>
+          </select>
+        </div>
+      </div>
+      <div class="grad-grid" id="gradGrid"></div>
+      <div class="load-more-wrap">
+        <button class="btn btn-primary" id="loadMoreBtn" type="button">Show More Graduates</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>GradScope 2025</strong>
+        <p id="footerCountCopy">-</p>
+      </div>
+      <div class="footer-note">
+        <strong>Sync &amp; Data Quality:</strong> Use the <em>Admin Panel</em> to add or remove records. Run <code>start_website.bat</code> (or <code>python server.py</code>) to persist changes directly to <code>cleaned_data.csv</code>, Power BI tables, and <code>data.js</code>. When opened as a local file, edits persist in browser storage and can be exported as CSV.
+      </div>
+    </div>
+  </footer>
+
+  <!-- College Detail Modal -->
+  <div class="modal-backdrop" id="schoolModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Admin Panel Drawer/Modal -->
+  <div class="modal-backdrop" id="adminModal" aria-hidden="true">
+    <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <button class="modal-close" id="adminClose" aria-label="Close admin panel">&times;</button>
+      <div class="admin-header">
+        <div>
+          <span class="eyebrow">Data Management</span>
+          <h2 id="adminTitle">Admin Panel — Add &amp; Remove Records</h2>
+          <p class="lead-sm" id="adminSyncDesc">Changes automatically recalculate all insights, B-school cards, regression coefficients, and directories.</p>
+        </div>
+        <div class="admin-top-btns">
+          <button class="btn-sm" id="exportCsvBtn" type="button">Download CSV</button>
+          <button class="btn-sm btn-danger-outline" id="resetDataBtn" type="button">Reset to Original 3,000</button>
+        </div>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="pill-btn active" data-atab="add" type="button">+ Add Student</button>
+        <button class="pill-btn" data-atab="manage" type="button">Remove / Manage Students</button>
+      </div>
+
+      <div id="adminMsg" class="admin-msg" aria-live="polite"></div>
+
+      <!-- TAB 1: ADD STUDENT -->
+      <form id="addStudentForm" class="admin-form">
+        <div class="form-grid">
+          <div class="field">
+            <label for="aID">Student ID *</label>
+            <input type="text" id="aID" required />
+          </div>
+          <div class="field">
+            <label for="aName">Full Name *</label>
+            <input type="text" id="aName" placeholder="e.g. Aarav Sharma" required />
+          </div>
+          <div class="field">
+            <label for="aGender">Gender</label>
+            <select id="aGender">
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="aAge">Age</label>
+            <input type="number" id="aAge" min="20" max="40" value="24" required />
+          </div>
+          <div class="field">
+            <label for="aState">Home State</label>
+            <select id="aState"></select>
+          </div>
+          <div class="field">
+            <label for="aCollege">College</label>
+            <select id="aCollege"></select>
+          </div>
+          <div class="field">
+            <label for="aSpec">MBA Specialization</label>
+            <select id="aSpec"></select>
+          </div>
+          <div class="field">
+            <label for="aUg">Undergrad Degree</label>
+            <select id="aUg">
+              <option value="BTech">BTech</option>
+              <option value="BBA">BBA</option>
+              <option value="BCom">BCom</option>
+              <option value="BSc">BSc</option>
+              <option value="BCA">BCA</option>
+              <option value="BA">BA</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="aUgPct">Undergrad %</label>
+            <input type="number" id="aUgPct" min="40" max="100" step="0.01" value="78.50" required />
+          </div>
+          <div class="field">
+            <label for="a10">Class 10 CGPA</label>
+            <input type="number" id="a10" min="5" max="10" step="0.01" value="8.80" required />
+          </div>
+          <div class="field">
+            <label for="a12">Class 12 %</label>
+            <input type="number" id="a12" min="40" max="100" step="0.01" value="86.00" required />
+          </div>
+          <div class="field">
+            <label for="aCat">CAT Percentile</label>
+            <input type="number" id="aCat" min="50" max="100" step="0.01" value="94.50" required />
+          </div>
+          <div class="field">
+            <label for="aCGPA">MBA CGPA</label>
+            <input type="number" id="aCGPA" min="4" max="10" step="0.01" value="8.60" required />
+          </div>
+          <div class="field">
+            <label for="aExp">Work Exp (Months)</label>
+            <input type="number" id="aExp" min="0" max="120" value="24" required />
+          </div>
+          <div class="field">
+            <label for="aSector">Prior Work Sector</label>
+            <select id="aSector">
+              <option value="IT/ITeS">IT/ITeS</option>
+              <option value="Consulting">Consulting</option>
+              <option value="BFSI">BFSI</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Manufacturing">Manufacturing</option>
+              <option value="No Experience">No Experience</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="aStipend">Internship Stipend (INR/mo)</label>
+            <input type="number" id="aStipend" min="0" max="300000" step="500" value="52000" required />
+          </div>
+          <div class="field">
+            <label for="aFee">Course Fee (INR)</label>
+            <input type="number" id="aFee" min="100000" max="5000000" step="50000" value="1500000" required />
+          </div>
+          <div class="field">
+            <label for="aStatus">Employment Status</label>
+            <select id="aStatus">
+              <option value="Placed">Placed</option>
+              <option value="Opted Out / Unplaced">Opted Out / Unplaced</option>
+            </select>
+          </div>
+          <div class="field placement-only">
+            <label for="aRecruiter">Recruiter Company</label>
+            <select id="aRecruiter"></select>
+          </div>
+          <div class="field placement-only">
+            <label for="aPType">Placement Type</label>
+            <select id="aPType">
+              <option value="On-Campus">On-Campus</option>
+              <option value="Pre-Placement Offer">Pre-Placement Offer</option>
+              <option value="Off-Campus">Off-Campus</option>
+            </select>
+          </div>
+          <div class="field placement-only">
+            <label for="aPkg">Package (LPA)</label>
+            <input type="number" id="aPkg" min="1" max="100" step="0.01" value="26.50" />
+          </div>
+          <div class="field placement-only">
+            <label for="aLoc">Joining Location</label>
+            <select id="aLoc"></select>
+          </div>
+        </div>
+        <div class="form-footer">
+          <button class="btn btn-primary" type="submit">Add Student &amp; Sync Everywhere</button>
+        </div>
+      </form>
+
+      <!-- TAB 2: MANAGE / REMOVE -->
+      <div id="manageStudentPanel" class="manage-panel" style="display:none;">
+        <div class="manage-bar">
+          <input type="search" id="adminSearch" placeholder="Filter by ID, name, college, recruiter..." />
+          <button class="btn-sm btn-danger" id="bulkDeleteBtn" type="button" disabled>Delete Selected (0)</button>
+        </div>
+        <div class="table-wrap admin-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th><input type="checkbox" id="selectAllRows" aria-label="Select visible rows" /></th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>College</th>
+                <th>Spec</th>
+                <th>Status</th>
+                <th>Recruiter</th>
+                <th class="num">LPA</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
